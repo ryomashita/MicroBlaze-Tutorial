@@ -1,22 +1,15 @@
-このファイルは以下の資料を和訳したものです。
+このファイルは以下の資料を和訳・追記したものです。
 
 https://github.com/Xilinx/Embedded-Design-Tutorials/blob/master/docs/Feature_Tutorials/microblaze-system/README.MD
 
-<p class="sphinxhide" align="right"><a href="../../docs-cn/README.md">简体中文</a> | <a href="../../docs-jp/README.md">日本語</a></p>
-<table width="100%">
-  <tr width="100%">
-    <td align="center"> <img src="https://raw.githubusercontent.com/Xilinx/Image-Collateral/main/xilinx-logo.png" width="30%"> 
-    </td>
- </tr>
-</table>
 
 # Programming an Embedded MicroBlaze Processor
 
 ## Introduction
 
- In this tutorial, you create a simple MicroBlaze&trade; system for a Spartan&reg;-7 FPGA using Vivado&reg; IP integrator.
+In this tutorial, you create a simple MicroBlaze system for a Spartan&reg;-7 FPGA using Vivado&reg; IP integrator.
 
- The MicroBlaze system includes native Xilinx&reg; IP including:
+The MicroBlaze system includes native Xilinx&reg; IP including:
 
 * MicroBlaze processor
 * AXI block RAM
@@ -27,13 +20,13 @@ https://github.com/Xilinx/Embedded-Design-Tutorials/blob/master/docs/Feature_Tut
 * Proc Sys Reset
 * Local memory bus (LMB)
 
- Parts of the block design are constructed using the Platform Board Flow feature.
+Parts of the block design are constructed using the **Platform Board Flow** feature.
 
- This lab also shows the cross-trigger capability of the MicroBlaze processor.
+This lab also shows the **cross-trigger capability** of the MicroBlaze processor.
 
- The feature is demonstrated using a software application code developed in the Vitis software platform in a stand-alone application mode.
+The feature is demonstrated using a software application code developed in the Vitis software platform in a stand-alone application mode.
 
- This lab targets the Xilinx SP701 FPGA Evaluation Kit.
+This lab targets the Xilinx SP701 FPGA Evaluation Kit.
 
 ## Step 1: Start the Vivado IDE and Create a Project
 
@@ -70,6 +63,7 @@ Although Tcl commands are available for many of the actions performed in the Viv
 1. From Flow Navigator, under IP integrator, select **Create Block Design**.
 
 2. Specify the IP subsystem design name. For this step, you can use `mb_subsystem` as the Design name. Leave the Directory field set to its default value of \<Local to Project\>. Leave the Specify source set drop-down list set to its default value of Design Sources.
+   * Leave ~ to default value: デフォルト値のままにしておく。
 
 3. Click **OK** in the Create Block Design dialog box, shown in the following figure.
 
@@ -82,6 +76,9 @@ Although Tcl commands are available for many of the actions performed in the Viv
     ![](./media/image2-1.png)
 
 5. Type `mig` in the Search field to find the MIG core, then select **Memory Interface Generator (MIG 7 Series)**, and press **Enter**.
+   * MIG: Memory Interface Generator: DRAMへのアクセスを提供するIPコア
+     * MIG + User Interface を合わせて、DRAM Controllerになる。
+     * 参考：https://www.acri.c.titech.ac.jp/wordpress/archives/6048
 
    ![](./media/image3-1.png)
 
@@ -100,13 +97,15 @@ Although Tcl commands are available for many of the actions performed in the Viv
 
 8. Right-click anywhere in the block design canvas, and select **Add IP**. The IP catalog opens.
 
-9. In the Search field, type `micr` to find the MicroBlaze IP, then select **MicroBlaze**, and press **Enter**.
+9.  In the Search field, type `micr` to find the MicroBlaze IP, then select **MicroBlaze**, and press **Enter**.
 
  ***Note*:** If not displayed by default, the IP Details window can be displayed by clicking **CTRL+Q** on the keyboard while searching for IP.
 
   ![](./media/image8-1.png) ![](./media/image7-1.png)
 
 ### Use the Board Window to Connect to Board Interfaces
+評価ボードの既存インターフェースに接続する。
+BoardウィンドウにリストされているIFを選択すると、IPが自動で生成される。
 
 There are several ways to use an existing interface in IP integrator. Use the Board window to instantiate some of the interfaces that are present on the SP701 board.
 
@@ -114,7 +113,8 @@ There are several ways to use an existing interface in IP integrator. Use the Bo
 
    ![](./media/image9-1.png)
 
-   In the Board window, notice that the DDR3 SDRAM interface is connected as shown by the circle![](./media/image10-1.png)  in the following figure. This is because you used the Block Automation feature in the previous steps to connect the MIG core to the board interfaces for DDR3 SDRAM memory.
+   In the Board window, notice that the DDR3 SDRAM interface is connected as shown by the circle![](./media/image10-1.png)  in the following figure. 
+   This is because you used the **Block Automation** feature in the previous steps to connect the MIG core to the board interfaces for DDR3 SDRAM memory.
 
    ![](./media/image11-1.png)
 
@@ -144,6 +144,8 @@ There are several ways to use an existing interface in IP integrator. Use the Bo
    ![](./media/image14-2.png)
 
 ### Run Block Automation
+MicroBlazeの基本的な設定を行い、Block Automationを実行することで、
+IPコア同士が自動で接続される。
 
 1. Click **Run Block Automation**, as shown below.
     ![](./media/image15-1.png)
@@ -157,10 +159,13 @@ There are several ways to use an existing interface in IP integrator. Use the Bo
     b. Set Local Memory to **64 KB**.
 
     c. Leave the Local Memory ECC as the default value, **None**.
+        * ECC: Error Checking and Correcting
 
     d. Set Cache Configuration to **32 KB**.
+        * キャッシュメモリのこと。
 
     e. Set Debug Module to **Extended Debug**.
+        * モジュールを追加し、拡張デバッグ機能を提供する
 
     f. Leave the Peripheral AXI Port option as the default value, **Enabled**.
 
@@ -176,6 +181,8 @@ There are several ways to use an existing interface in IP integrator. Use the Bo
    ![](./media/image17-1.png)
 
 ### Use Connection Automation
+IP同士の接続を設定する。
+全ての接続を１つずつ設定していくので、実際にはかなりの作業量になる。
 
 Run Connection Automation provides several options that you can select to make connections. This section will walk you through the first connection, and then you will use the same procedure to make the rest of the required connections for this tutorial.
 
@@ -213,6 +220,8 @@ Run Connection Automation provides several options that you can select to make c
 ***Note*:** The relative placement of your IP might be slightly different.
 
 ### Mark Nets for Debugging
+AXIバスを監視できるよう、IPコアを接続する。
+Connection Automationを使うのは前節と同じだが、こちらはDebug用の接続を行う。
 
 1. To monitor the AXI transactions taking place between the MicroBlaze and the GPIO, select the interface net connecting M00_AXI interface pin of 
     the microblaze_0\_axi_periph instance and the S_AXI interface pin of the axi_gpio_0 instance.
@@ -235,6 +244,8 @@ Run Connection Automation provides several options that you can select to make c
 ***Note*:** The relative placement of your IP might be slightly different.
 
 ### Add Connection Between MDM and AXI SmartConnect
+BRAM・DRAMバスをJTAGデバッグするため、MDMとAXI SmartConnect(バスコントローラ)を接続する。
+これによりJTAGからAXIを介してメモリアクセスが可能なため、プログラムをダウンロードしたり、メモリデバッグが可能。
 
 In order to enable JTAG-based debugging of the AXI BRAM Controller and the DDR3 RAM, a connection between the MicroBlaze Debug Module (MDM) and AXI SmartConnect must be made.
 
@@ -254,6 +265,8 @@ In order to enable JTAG-based debugging of the AXI BRAM Controller and the DDR3 
 This connection connects the AXI4 master port of the MicroBlaze Debug Module (MDM) to the AXI SmartConnect for direct access to memory from JTAG. This allows fast program download, as well as transparent memory access when the connected MicroBlaze processors are executing.
 
 ## Step 3: Memory-Mapping the Peripherals in IP Integrator
+MicroBlazeのメモリ空間の設定を行う。
+MicroBlaze, MDMそれぞれから見えるメモリブロックの容量を設定し、未割当が無いようチェックする。
 
 1. Click the **Address Editor** window.
 
@@ -266,13 +279,17 @@ This connection connects the AXI4 master port of the MicroBlaze Debug Module (MD
 
     c. The top of the Address Editor window should show Assigned (11), indicating all 11 interfaces were assigned addresses. If Unassigned shows any interfaces unassigned, click on the **Assign All** arrow ![](./media/image28-1.png).
 
+Block Automationで命令キャッシュ・データキャッシュを有効にした場合、メモリがキャッシュ可能な範囲にあることを確認する。
 You must also ensure that the memory in which you are going to run and store your software is within the cacheable address range. This occurs when you enable Instruction Cache and Data Cache, while running the Block Automation for the MicroBlaze processor.
 
+BRAM・DRAMを使用する場合は、それらがキャッシュ可能な領域にないと、読み書きができない。
 To use either Memory IP DDR or AXI block RAM, those IP must be in the cacheable area; otherwise, the MicroBlaze processor cannot read from or write to them.
 
+デザインの検証をお行うことで、キャッシュ可能なアドレス範囲が自動的に再構成される。
 Validating the design will automatically re-configure the MicroBlaze processor's cacheable address range.
 
 ## Step 4: Validate Block Design
+ブロックデザインを検証し、問題なければファイルにセーブする。
 
 To run design rule checks on the design:
 
@@ -285,6 +302,7 @@ To run design rule checks on the design:
 3. Save your design by pressing **Ctrl+S**, or select **File > Save Block Design**.
 
 ## Step 5: Generate Output Products
+作成したブロックデザインを、Out of contextな設計データとして出力する。
 
 1. In the Sources window, select the block design, then right-click it and select **Generate Output Products**. Alternatively, you can click 
     **Generate Block Design in the Flow Navigator**.
@@ -303,6 +321,7 @@ To run design rule checks on the design:
    ![](./media/image31-1.png)
 
 ## Step 6: Create a Top-Level Wrapper
+ブロックデザインに対し、HDLラッパーを作成する。
 
 1. Under Design Sources, right-click the block design `mb_subsystem` and click **Create HDL Wrapper**.
 
@@ -313,6 +332,8 @@ To run design rule checks on the design:
     ![](./media/image32-1.png)
 
 ## Step 7: Take the Design through Implementation
+生成したブロックデザインを、bitstreamに変換する。
+タイミング制約に違反していないか、ここで確認する。
 
 1. In the Flow Navigator, click **Generate Bitstream**.
 
@@ -332,6 +353,9 @@ To run design rule checks on the design:
     ![](./media/image33-1.png)
 
 ## Step 8: Export the Design to the Vitis software platform
+作成したbitstream & ハード仕様を、XSA形式でエクスポートする。
++ XSA: Xilinx Support Archive
+
 
 ![](./media/image29.png) **IMPORTANT!** *For the usb driver to install, you must power on and connect the board to the host PC before launching the Vitis software platform.*
 
@@ -357,6 +381,20 @@ Next, open the design and export to the Vitis software platform.
 8. Click **Launch**.
 
 ## Step 9: Create a "Peripheral Test" Application
+XSAファイルをベースに、Vitisプロジェクトを新規作成する。
+テンプレートにはPeriferal Testsを使用する。
+作成したVitisプロジェクト上で、リンカースクリプトを生成する。
+リンカースクリプトで、コード実行位置・ヒープ・スタック領域をDDR3上に指定する。
+
++ linker: プログラム片（C言語のオブジェクトファイル）を統合し、実行可能なプログラムを生成する。
+  + -> プログラム片のメモリ配置を行う。
++ Linker Script: ldが、入力（オブジェクトファイル）をどのようにリンクさせるかを制御するスクリプト。
+  + https://satoru-takeuchi.hatenablog.com/entry/2020/03/26/005947
+  + 実行ファイル上のメモリ配置を、バイト単位で制御できる。
++ ld: GNU Linuxのリンカーコマンド。
+  + link loaderの略。黎明期は実行時にldが必要なプログラム片を随時ロードしていた。現在は静的に１ファイルに纏められるため、動的ロード機能は不要になった。
+    + https://zenn.dev/tetsu_koba/articles/97f145f79eddbf
+
 
 The Vitis software platform launches in a separate window.
 ![](./media/image37-1.png)
@@ -411,6 +449,9 @@ The Vitis software platform launches in a separate window.
 18. Click the hammer icon![](./media/image44-1.png) in the toolbar again to rebuild the application with the modified linker script.
 
 ## Step 10: Execute the Software Application on a SP701 Board
+ホストに接続したボード上で、デバッグ機能を使ってアプリケーションを実行する。
+ブレークポイントを設定して、動作を止めることが可能。
+
 
 ![](./media/image29.png)**IMPORTANT!** *Make sure that you have connected the target board to the host computer and it is turned on.*
 
@@ -453,6 +494,10 @@ The Vitis software platform launches in a separate window.
 11. Click the hammer icon![](./media/image44-1.png) to rebuild the file with the modified code. Now you are ready to execute the code from the Vitis software platform.
 
 ## Step 11: Connect to Vivado Logic Analyzer
+VivadoのLogic Analyzer(ILA)機能を使うため、Hardware Managerからデバイスに接続する。
+（実際のデバッグは次ステップ。）
+*ILA: Integrated Logic Analyzer
+    * https://japan.xilinx.com/products/intellectual-property/ila.html
 
 Connect to the SP701 board using the Vivado Logic Analyzer.
 
@@ -478,6 +523,9 @@ Connect to the SP701 board using the Vivado Logic Analyzer.
  ***Note*:** You can also use the Auto Connect option to connect to the target hardware.
 
 ## Step 12: Set the MicroBlaze to Logic Cross Trigger
+Cross Trigger機能を使い、ハードウェアの状態を監視する。
+MicroBlazeがブレークポイントに達すると、ILAにトリガーが発行される。これを使って、任意のタイミングで回路の状態をキャプチャできる。
+
 When the Vivado Hardware Session successfully connects to the SP701 board, you see the information shown in the following figure:
 ![](./media/image57-1.png)
 
@@ -505,6 +553,8 @@ The code will execute until the breakpoint set on line 50 in `testperiph.c` file
 This demonstrates that when the breakpoint is encountered during code execution, the MicroBlaze triggers the ILA that is set up to trigger. This way you can monitor the state of the hardware at a certain point of code execution.
 
 ## Step 13: Set the Logic to Processor Cross- Trigger
+Cross Trigger機能の詳細な使い方を示す。
+ブレークポイントではなく、GPIOへの書き込みをトリガーとして、ILAトリガー＆MicroBlaze停止を行える。
 
 Now try the logic to processor side of the cross-trigger mechanism. In other words, remove the breakpoint that you set earlier on line 50 to have the ILA trigger the processor and stop code execution.
 
@@ -540,20 +590,33 @@ Now try the logic to processor side of the cross-trigger mechanism. In other wor
 In this tutorial, you:
 
 -   Stitched together a design in the Vivado IP integrator
+    Vivado IP インテグレーターでデザインをつなぎ合わせた
 
 -   Took the design through implementation and bitstream generation
+    設計から実装およびビットストリーム生成までを行う
 
 -   Exported the hardware to Vitis
+    ハードウェアを Vitis にエクスポートした
 
 -   Created and modified application code that runs on a Standalone Operating System
+    スタンドアロンのOperating System上で実行されるアプリケーションコードを、作成および変更した。
 
 -   Modified the linker script so that the code executes from the DDR3 memory
+    コードが DDR3 メモリから実行されるようにリンカー スクリプトを変更しました。
 
 -   Verified cross-trigger functionality between the MicroBlaze processor executing code and the design logic
+    MicroBlaze プロセッサの実行コードとデザイン ロジック間のクロストリガー機能を検証
 
 ## Lab Files
+実行されたVivadoコマンドは全てtclスクリプトに纏められている。
+ただしプロジェクトパス・プロジェクト名は修正する必要がある。
+VitisはGUI上で操作を実行する必要がある。
 
-The Tcl script `lab.tcl` is included with the design files to perform all the tasks in Vivado. The Vitis software platform operations must be done in the Vitis GUI. You will need to modify the Tcl script to match the desired project path and project name on your machine.
+The Tcl script `lab.tcl` is included with the design files to perform all the tasks in Vivado. 
+The Vitis software platform operations must be done in the Vitis GUI. 
+You will need to modify the Tcl script to match the desired project path and project name on your machine.
+
+
 
 ---
 
