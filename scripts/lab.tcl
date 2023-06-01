@@ -19,14 +19,17 @@
 # STEP1
 create_project microblaze_system C:/Projects/UG940_Lab3/microblaze_system -part xc7s100fgga676-2
 set_property board_part xilinx.com:sp701:part0:1.1 [current_project]
+set_property target_language VHDL [current_project]
 
 # STEP2
 create_bd_design "mb_subsystem"
 update_compile_order -fileset sources_1
+
 startgroup
 create_bd_cell -type ip -vlnv xilinx.com:ip:mig_7series:4.2 mig_7series_0
 endgroup
 apply_bd_automation -rule xilinx.com:bd_rule:mig_7series -config {Board_Interface "ddr3_sdram" }  [get_bd_cells mig_7series_0]
+
 startgroup
 create_bd_cell -type ip -vlnv xilinx.com:ip:microblaze:11.0 microblaze_0
 endgroup
@@ -45,6 +48,8 @@ endgroup
 
 # STEP2: Run Block Automation
 apply_bd_automation -rule xilinx.com:bd_rule:microblaze -config { axi_intc {0} axi_periph {Enabled} cache {32KB} clk {/mig_7series_0/ui_addn_clk_0 (100 MHz)} cores {1} debug_module {Extended Debug} ecc {None} local_mem {64KB} preset {None}}  [get_bd_cells microblaze_0]
+
+## Use Connection Automation
 startgroup
 apply_bd_automation -rule xilinx.com:bd_rule:bram_cntlr -config {BRAM "Auto" }  [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA]
 apply_bd_automation -rule xilinx.com:bd_rule:bram_cntlr -config {BRAM "Auto" }  [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTB]
@@ -56,11 +61,18 @@ apply_bd_automation -rule xilinx.com:bd_rule:trigger -config {ila_conn "Auto" } 
 apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/mig_7series_0/ui_addn_clk_0 (100 MHz)} Clk_slave {/mig_7series_0/ui_clk (100 MHz)} Clk_xbar {Auto} Master {/microblaze_0 (Cached)} Slave {/mig_7series_0/S_AXI} ddr_seg {Auto} intc_ip {New AXI SmartConnect} master_apm {0}}  [get_bd_intf_pins mig_7series_0/S_AXI]
 apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {reset ( FPGA Reset ) } Manual_Source {Auto}}  [get_bd_pins rst_mig_7series_0_100M/ext_reset_in]
 endgroup
+# apply_bd_automation -rule xilinx.com:bd_rule:microblaze -config { axi_intc {0} axi_periph {Enabled} cache {32KB} clk {/mig_7series_0/ui_addn_clk_0 (100 MHz)} cores {1} debug_module {Extended Debug} ecc {None} local_mem {64KB} preset {None}}  [get_bd_cells microblaze_0]
+
+### Mark Nets for Debugging
 set_property HDL_ATTRIBUTE.DEBUG true [get_bd_intf_nets {microblaze_0_axi_periph_M00_AXI}]
 apply_bd_automation -rule xilinx.com:bd_rule:debug -dict [list \
                                                           [get_bd_intf_nets microblaze_0_axi_periph_M00_AXI] {AXI_R_ADDRESS "Data and Trigger" AXI_R_DATA "Data and Trigger" AXI_W_ADDRESS "Data and Trigger" AXI_W_DATA "Data and Trigger" AXI_W_RESPONSE "Data and Trigger" CLK_SRC "/mig_7series_0/ui_addn_clk_0" SYSTEM_ILA "Auto" APC_EN "0" } \
                                                          ]
+
+# Add Connection Between MDM and AXI SmartConnect
 apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/mig_7series_0/ui_addn_clk_0 (100 MHz)} Clk_slave {/mig_7series_0/ui_addn_clk_0 (100 MHz)} Clk_xbar {/mig_7series_0/ui_addn_clk_0 (100 MHz)} Master {/mdm_1/M_AXI} Slave {/axi_bram_ctrl_0/S_AXI} ddr_seg {Auto} intc_ip {/axi_smc} master_apm {0}}  [get_bd_intf_pins mdm_1/M_AXI]
+
+# IPブロックデザインを再配置、検証できる。
 regenerate_bd_layout
 validate_bd_design
 
@@ -85,8 +97,14 @@ export_ip_user_files -of_objects [get_files C:/Projects/UG940_Lab3/microblaze_sy
 create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Projects/UG940_Lab3/microblaze_system/microblaze_system.srcs/sources_1/bd/mb_subsystem/mb_subsystem.bd]
 launch_runs mb_subsystem_mig_7series_0_0_synth_1 mb_subsystem_microblaze_0_0_synth_1 mb_subsystem_axi_uartlite_0_0_synth_1 mb_subsystem_axi_gpio_0_0_synth_1 mb_subsystem_axi_bram_ctrl_0_0_synth_1 mb_subsystem_dlmb_v10_0_synth_1 mb_subsystem_ilmb_v10_0_synth_1 mb_subsystem_dlmb_bram_if_cntlr_0_synth_1 mb_subsystem_ilmb_bram_if_cntlr_0_synth_1 mb_subsystem_lmb_bram_0_synth_1 mb_subsystem_lmb_v10_0_synth_1 mb_subsystem_mdm_1_0_synth_1 mb_subsystem_rst_mig_7series_0_100M_0_synth_1 mb_subsystem_axi_bram_ctrl_0_bram_0_synth_1 mb_subsystem_axi_smc_0_synth_1 mb_subsystem_xbar_0_synth_1 mb_subsystem_system_ila_0_synth_1 -jobs 8
 export_simulation -of_objects [get_files C:/Projects/UG940_Lab3/microblaze_system/microblaze_system.srcs/sources_1/bd/mb_subsystem/mb_subsystem.bd] -directory C:/Projects/UG940_Lab3/microblaze_system/microblaze_system.ip_user_files/sim_scripts -ip_user_files_dir C:/Projects/UG940_Lab3/microblaze_system/microblaze_system.ip_user_files -ipstatic_source_dir C:/Projects/UG940_Lab3/microblaze_system/microblaze_system.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Projects/UG940_Lab3/microblaze_system/microblaze_system.cache/compile_simlib/modelsim} {questa=C:/Projects/UG940_Lab3/microblaze_system/microblaze_system.cache/compile_simlib/questa} {riviera=C:/Projects/UG940_Lab3/microblaze_system/microblaze_system.cache/compile_simlib/riviera} {activehdl=C:/Projects/UG940_Lab3/microblaze_system/microblaze_system.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+
+# Step 6: Create a Top-Level Wrapper
 make_wrapper -files [get_files C:/Projects/UG940_Lab3/microblaze_system/microblaze_system.srcs/sources_1/bd/mb_subsystem/mb_subsystem.bd] -top
 add_files -norecurse c:/Projects/UG940_Lab3/microblaze_system/microblaze_system.gen/sources_1/bd/mb_subsystem/hdl/mb_subsystem_wrapper.v
 update_compile_order -fileset sources_1
+
+# Step 7: Take the Design through Implementation
 launch_runs impl_1 -to_step write_bitstream -jobs 8
+
+# Step 8: Export the Design to the Vitis software platform
 write_hw_platform -fixed -include_bit -force -file C:/Projects/UG940_Lab3/microblaze_system/mb_subsystem_wrapper.xsa

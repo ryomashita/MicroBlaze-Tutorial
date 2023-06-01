@@ -85,6 +85,9 @@ Although Tcl commands are available for many of the actions performed in the Viv
     The Designer Assistance link becomes active in the block design banner.
 
 6. Click **Run Block Automation**.
+    + Run Block Automation: Automatically make connections in your design by checking the boxes of the blocks to connect. Select a block on the left to display its configuration options on the right.
+    + ボックスをチェックしたブロックのすると、デザイン内で接続が自動的に作成されます。 左側でブロックを選択すると、右側にその構成オプションが表示されます。
+
 
    ![](./media/image4-1.png)
 
@@ -93,6 +96,7 @@ Although Tcl commands are available for many of the actions performed in the Viv
    ![](./media/image5-1.png)
 
 7. Click **OK**. This instantiates the MIG core and connects the I/O interfaces to the I/O interfaces for the DDR memory on the SP701 board.
+   + => 実行すると、それまでCLK_REFとsys_rstしかなかったブロックが詳細化し、ddr3_sdram接続用に構成される。
    ![](./media/image6-1.png)
 
 8. Right-click anywhere in the block design canvas, and select **Add IP**. The IP catalog opens.
@@ -115,10 +119,12 @@ There are several ways to use an existing interface in IP integrator. Use the Bo
 
    In the Board window, notice that the DDR3 SDRAM interface is connected as shown by the circle![](./media/image10-1.png)  in the following figure. 
    This is because you used the **Block Automation** feature in the previous steps to connect the MIG core to the board interfaces for DDR3 SDRAM memory.
+   + ![](./media/image10-1.png) は 接続済み(connected)のアイコン。
 
    ![](./media/image11-1.png)
 
 2. From the Board window, select **UART** under the Miscellaneous folder, and drag and drop it into the block design canvas.
+    + miscellaneours: その他。
 
     This instantiates the AXI Uartlite IP on the block design.
 
@@ -146,6 +152,13 @@ There are several ways to use an existing interface in IP integrator. Use the Bo
 ### Run Block Automation
 MicroBlazeの基本的な設定を行い、Block Automationを実行することで、
 IPコア同士が自動で接続される。
++ Block Automationで実行されること：
+  + UART(AXI Uart-lite), LED(AXI GPIO)は自動でPortに接続される。
+  + MicroBlazeにローカルメモリ(LMB)が追加される。
+    + DLMB, ILMBピンが接続される
+  + MDMと各種ポートが接続される。
+    + MBのDEBUGピン、リセット、LMBと接続。
++ Block Automation後、 `regenerate_bd_layout`を実行すれば、ブロックデザインが自動で再配置される。
 
 1. Click **Run Block Automation**, as shown below.
     ![](./media/image15-1.png)
@@ -155,6 +168,7 @@ IPコア同士が自動で接続される。
 2. On the **Run Block Automation** dialog box:
 
     a. Leave Preset as the default value, **None**.
+        + Presetの詳細は以下：https://docs.xilinx.com/r/en-US/ug1579-microblaze-design/MicroBlaze-Configuration-Wizard-Welcome-Page
 
     b. Set Local Memory to **64 KB**.
 
@@ -197,13 +211,41 @@ Run Connection Automation provides several options that you can select to make c
 
 3. Use the following table to set options in the Run Connection Automation dialog box.
 
+設定項目：
++ BRAM Controller(axi_bram_ctrl_0):
+  + PORTA, PORTB: 新たなBRAM Controller(BGM)を作成して接続するか。
+  + S_AXI: マスター（メモリの接続先）を選択する
+    + MicroBlaze, AXIバスのどちらか
+    + Cacheの有無を選択可能
++ AXI GPIO: マスター(ここではMicroBlaze), クロックの選択
++ AXI UART: マスター(ここではMicroBlaze), クロックの選択
++ MDM: 接続するILA(Integrated Logic Analyzer)ブロックを選択
+  + Auto: 
++ MIG: マスター, キャッシュの有無, クロックを選択する。
+  + Rst_mig_7_series_0_100M ext_reset_inは資料にはあるが、Vivadoでは出てこなかった。
+
+実行すると：
++ AXI SmartConnect
+  + 最大16Slave, 16Masterを接続し、調停・並列転送を行う。
+    + AXI Smart ConnectはAXI Interconnectの簡易版で、こちらの方が性能が良い。
+    + 新しい分、何かしらの問題はあるのかも？程度。
+  + BRAM Controller, MIGと接続。
++ AXI Interconnectが生成される。
+  + GPIO, UARTと接続。
+  + SmartconnectとInterconnectの違い: https://docs.xilinx.com/r/ja-JP/ug994-vivado-ip-subsystems/AXI-Interconnect-vs.-AXI-SmartConnect
++ Block Memory Generatorが生成される。
+  + BRAM Controllerと接続。
++ System ILAが生成される
+  + MDMのTRIG_IN, TRIG_OUTと接続。
+
+
     *Table 1:* **Run Connection Automation Options**
 
    |  Connection |  More Information  |  Setting |
    |---|---|---|
    | axi_bram_ctrl_0     BRAM_PORTA  | The only option for this automation is to instantiate a new Block Memory Generator as shown under options. | Leave the Blk_Mem_Gen to its default option of Auto. |
-   | axi_bram_ctrl_0     BRAM_PORTB  | The Run Connection Automation dialog box opens and gives you two choices:    Instantiate a new BMG and connect the PORTB of the AXI block RAM Controller to the new BMG IP   Use the previously instantiated BMG core and automatically configure it to be a true dual- ported memory and connected to PORTB of the AXI block RAM Controller.   | Leave the Blk_Mem_Gen option to its default value of Auto. |
-   | axi_bram_ctrl_0    S_AXI   | Two options are presented in this case. The Master field can be set for either cached or non-cached accesses. | The Run Connection Automation dialog box offers to connect this to the /microblaze_0 (Cached). Leave it to its default value. In case, cached accesses are not desired this could be changed to /microblaze_0 (Periph).    Leave the Clock Connection (for unconnected clks) field set to its default value of Auto. |
+   | axi_bram_ctrl_0     BRAM_PORTB  | The Run Connection Automation dialog box opens and gives you two choices:    Instantiate a new BMG and connect the PORTB of the AXI block RAM Controller to the new BMG IP   Use the previously instantiated BMG core and automatically configure it to be a true dual- ported memory and connected to PORTB of the AXI block RAM Controller.   次の 2 つの選択肢が表示されます。 1. 新しい BMG をインスタンス化し、PORTB を新しい BMG IP に接続します。 2. 以前にインスタンス化された BMG コアを使用し、AXI ブロック RAM コントローラーの PORTB に接続されます。真のデュアル ポート メモリになるように自動的に構成します。 | Leave the Blk_Mem_Gen option to its default value of Auto. |
+   | axi_bram_ctrl_0    S_AXI   | Two options are presented in this case. The Master field can be set for either cached or non-cached accesses. | The Run Connection Automation dialog box offers to connect this to the `/microblaze_0 (Cached)`. Leave it to its default value. In case, cached accesses are not desired this could be changed to `/microblaze_0 (Periph)`.    Leave the Clock Connection (for unconnected clks) field set to its default value of Auto. |
    | axi_gpio_0    S_AXI   | The Master field is set to its default value of /microblaze_0 (Periph).  The Clock Connection (for unconnected clks) field is set to its default value of Auto.  | Keep these default settings. |
    | axi_uartlite_0    S_AXI   | The Master field is set to its default value of /microblaze_0 (Periph).  The Clock Connection (for unconnected clks) field is set to its default value of Auto.  | Keep these default settings. |
    | mdm_1     TRIG_IN_0  | This will be connected to a new System ILA core’s TRIG_OUT pin. | Leave the ILA Connection settings to its default value of Auto. |
@@ -211,7 +253,7 @@ Run Connection Automation provides several options that you can select to make c
    | mig_7series_0    S_AXI   | The Master field is set to microblaze_0 (Cached). Leave it to this value so the accesses to the DDR3 memory are cached accesses.  The Clock Connection (for unconnected clks) field is set to its default value of Auto.  | Keep these default settings. |
    | Rst_mig_7_series_0_100M     ext_reset_in  | The reset pin of the Processor Sys Rreset IP will be connected to the board reset pin. | Keep the default setting. |
 
-4. After setting the appropriate options, as shown in the table above, click **OK**.
+1. After setting the appropriate options, as shown in the table above, click **OK**.
 
     At this point, your IP integrator diagram area should look like the following figure.
 
@@ -223,11 +265,14 @@ Run Connection Automation provides several options that you can select to make c
 AXIバスを監視できるよう、IPコアを接続する。
 Connection Automationを使うのは前節と同じだが、こちらはDebug用の接続を行う。
 
++ AXI InterconnectとAXI GPIO間の信号を、ILAで監視する。
+  + IP間のAXIバスが、ILAブロックのSLOT_0_AXIに接続される。
+
 1. To monitor the AXI transactions taking place between the MicroBlaze and the GPIO, select the interface net connecting M00_AXI interface pin of 
     the microblaze_0\_axi_periph instance and the S_AXI interface pin of the axi_gpio_0 instance.
 
 2. Right-click and select **Debug** from the context menu.
-
+    + => 何も起きない
    ***Note*:** The Designer Assistance is available as indicated by the Run Connection Automation link in the banner of the block design.
 
 3. Click **Run Connection Automation**.
@@ -252,23 +297,31 @@ In order to enable JTAG-based debugging of the AXI BRAM Controller and the DDR3 
 1. Click **Run Connection Automation**.
 
 2. In the Run Connection Automation dialog box box set the Slave interface option to either **/axi_bram_ctrl_0/S_AXI** or **/mig_7series_0/S_AXI**.
+   + MDMのM_AXIを、BRAMかMIGのいずれかに接続する。
+   + どちらを選んでも、AXI SmartConnectのS02_AXIに接続されるので結果は同じ。
 
   ![](./media/image24-1.png)
 
    Either option will connect to the same AXI SmartConnect instance allowing for JTAG memory access.
-3. Click the Regenerate Layout button ![](./media/image25-1.png) in the IP integrator toolbar to generate an optimum layout for the block design. The block diagram should look like the following figure.
+1. Click the Regenerate Layout button ![](./media/image25-1.png) in the IP integrator toolbar to generate an optimum layout for the block design. The block diagram should look like the following figure.
 
    ![](./media/image26-1.png)
 
 ***Note*:** The relative placement of your IP might be slightly different.
 
 This connection connects the AXI4 master port of the MicroBlaze Debug Module (MDM) to the AXI SmartConnect for direct access to memory from JTAG. This allows fast program download, as well as transparent memory access when the connected MicroBlaze processors are executing.
+この接続は、JTAGからメモリに直接アクセスできるように、MDMのAXI4マスターポートを AXI SmartConnect に接続します。 これにより、プログラムの高速ダウンロードと、接続された MicroBlaze プロセッサの実行時の透過的なメモリ アクセスが可能になります。
 
 ## Step 3: Memory-Mapping the Peripherals in IP Integrator
 MicroBlazeのメモリ空間の設定を行う。
 MicroBlaze, MDMそれぞれから見えるメモリブロックの容量を設定し、未割当が無いようチェックする。
 
++ BRAM, MIG, GPIO, UARTは、全て同じメモリアドレス空間上に存在する。
++ 一方、LMBのアドレス空間は独立している。
+  + InterfaceもAXIではなく、SLMBと表示されている。
+
 1. Click the **Address Editor** window.
+   + ブロックデザインDiagramと同じウィンドウにある。
 
 2. In the Address Editor, do the following:
 
@@ -285,11 +338,13 @@ You must also ensure that the memory in which you are going to run and store you
 BRAM・DRAMを使用する場合は、それらがキャッシュ可能な領域にないと、読み書きができない。
 To use either Memory IP DDR or AXI block RAM, those IP must be in the cacheable area; otherwise, the MicroBlaze processor cannot read from or write to them.
 
-デザインの検証をお行うことで、キャッシュ可能なアドレス範囲が自動的に再構成される。
+デザインの検証を行うことで、キャッシュ可能なアドレス範囲が自動的に再構成される。
 Validating the design will automatically re-configure the MicroBlaze processor's cacheable address range.
 
 ## Step 4: Validate Block Design
 ブロックデザインを検証し、問題なければファイルにセーブする。
++ 検証：`validate_bd_design`で実行可能。
++ 保存：`save_bd_design`
 
 To run design rule checks on the design:
 
@@ -305,6 +360,11 @@ To run design rule checks on the design:
 作成したブロックデザインを、Out of contextな設計データとして出力する。
 
 1. In the Sources window, select the block design, then right-click it and select **Generate Output Products**. Alternatively, you can click 
+    + 左サイドにあるNavigatorの、**Generate Block Design**を実行する。
+    + Out of context per IP: 
+      + 個々のIPごとにSynthを行ってデザイン・チェック・ポイントを作成する。こちらの方が論理合成時間が速い。
+      + Globalでは、１つのIPが変更されると全BD（全IP）が再合成される。そのため毎回時間がかかる。
+
     **Generate Block Design in the Flow Navigator**.
 
     The Generate Output Products dialog box opens.
@@ -320,10 +380,16 @@ To run design rule checks on the design:
 4. Wait a few minutes for all the Out-of-Context module runs to finish as shown in the Design Runs windows.
    ![](./media/image31-1.png)
 
++ Tools > Generate Memory Map Configuration Fileで、MCS/(HEX/BIN)が生成可能。
+  + write_cfgmemを呼び出す。
+
 ## Step 6: Create a Top-Level Wrapper
 ブロックデザインに対し、HDLラッパーを作成する。
+実行すると、ブロックデザインを囲むHDLラッパーが生成される。
+    + BDの変更に自動で追随するよう設定可能。その場合ユーザで編集はできない。
 
 1. Under Design Sources, right-click the block design `mb_subsystem` and click **Create HDL Wrapper**.
+    + Sourceタブからmb_subsystemを右クリックで選択する。
 
     In the Create HDL Wrapper dialog box, Let Vivado manage wrapper and auto-update is selected by default.
 
@@ -333,7 +399,8 @@ To run design rule checks on the design:
 
 ## Step 7: Take the Design through Implementation
 生成したブロックデザインを、bitstreamに変換する。
-タイミング制約に違反していないか、ここで確認する。
+    + タイミング制約に違反していないか、ここで確認する。
+Synthesis, Implementationも順に実行される。
 
 1. In the Flow Navigator, click **Generate Bitstream**.
 
@@ -355,6 +422,8 @@ To run design rule checks on the design:
 ## Step 8: Export the Design to the Vitis software platform
 作成したbitstream & ハード仕様を、XSA形式でエクスポートする。
 + XSA: Xilinx Support Archive
+  + https://docs.xilinx.com/r/ja-JP/ug1400-vitis-embedded/XSA
+  + Bitstreamに加え、メモリ情報(BMM/MMI), プロセッサ情報を含んだコンテナファイル。
 
 
 ![](./media/image29.png) **IMPORTANT!** *For the usb driver to install, you must power on and connect the board to the host PC before launching the Vitis software platform.*
@@ -402,51 +471,72 @@ The Vitis software platform launches in a separate window.
 1. Close the Welcome screen if it appears.
 
 2. Select **File > New > Application Project** or under **Project** click **Create Application Project**.
+   + `Creat Application Project`でも同じ。
     ![](./media/image38-1.png)
 
-3. Select the **Skip welcome page next time** check box if you do not want the welcome to appear when the Vitis software platform is launched again.
+Welcomページの説明：
++ 新しいアプリケーションプロジェクトは４ステップで作成できる。
+    1. create platform か、エクスポートされたXSAファイルを使用する create platform project を選択する。
+    2. アプリケーションプロジェクトをプロセッサに関連付けるため、システムプロジェクト(App)に入れる。
+    3. アプリケーションランタイム(Domain)をユーザが設計する。
+    4. アプリケーションのテンプレートを選択する。
+        + 今回はPeripheral Tests.他にも色々ある。
+        + SREC Bootloaderもここにある。
+    + platform: HW/SW環境設定
+    + system project: アプリケーション本体。
+      + 1つのApplication Projectで、複数のSystem Projectを持てる。
+      + プロセッサが複数あれば、並列実行も可能。
+    + domain: OS, BSPのようなランタイムを提供する。
+      + BSP（Board Support Package）
+      + standalone/freertos10_linux/linux から選択できる。
+        + アーキテクチャはいずれも32bitのみ。
+    + Processor -> Domain (Kernelのこと) -> App
+    + workspace: platform, system projectを管理する場所。
 
-4. Click **Next**.
 
-5. In the Platform page, select the **Create a new platform from hardware (XSA)** tab.
+1. Select the **Skip welcome page next time** check box if you do not want the welcome to appear when the Vitis software platform is launched again.
+
+2. Click **Next**.
+
+3. In the Platform page, select the **Create a new platform from hardware (XSA)** tab.
     ![](./media/image39-1.png)
 
-6. Click **Browse** to open the Create Platform from XSA window. Navigate to the directory where the XSA file was created in Vivado and click **Open**.
+4. Click **Browse** to open the Create Platform from XSA window. Navigate to the directory where the XSA file was created in Vivado and click **Open**.
     ![](./media/image40-1.png)
 
-7. Click **Next**.
+5. Click **Next**.
 
-8. In the Application project name field, type the name desired, such as `peri_test`. Leave all other fields to their default values, and click **Next**.
+6. In the Application project name field, type the name desired, such as `peri_test`. Leave all other fields to their default values, and click **Next**.
 
     ![](./media/image41-1.png)
 
-9. In the Domain page leave all the fields at their default values and click **Next**.
+7.  In the Domain page leave all the fields at their default values and click **Next**.
     ![](./media/image42-1.png)
 
-10. In the Templates page, select **Peripheral Tests**.
+8.  In the Templates page, select **Peripheral Tests**.
     ![](./media/image43-1.png)
 
-11. Click **Finish**.
+9.  Click **Finish**.
 
-12. A new ```peri_test``` application is created. To build the application click the hammer icon![](./media/image44-1.png) in the toolbar.
+10. A new ```peri_test``` application is created. To build the application click the hammer icon![](./media/image44-1.png) in the toolbar.
 
-13. Wait for the application to finish compiling.
+11. Wait for the application to finish compiling.
 
-14. Right-click the peri_test application in the Project Explorer, and select **Generate Linker Script**.
+12. Right-click the peri_test application in the Project Explorer, and select **Generate Linker Script**.
 
     The Generate Linker Script dialog box opens.
 
-15. Select the **Basic** tab, and change the Assigned Memory for Heap and Stack, Code, and Data to DDR memory. Change the Place Code Sections in:, 
+13. Select the **Basic** tab, and change the Assigned Memory for Heap and Stack, Code, and Data to DDR memory. Change the Place Code Sections in:, 
     Place Data Sections in: and Place Heap and Stack in: sections to **mig_7series_0_memaddr**.
     ![](./media/image45-1.png)
 
     Setting these values to **mig_7series_0** ensures that the compiled code executes from the DDR3 Memory IP.
 
-16. Click **Generate**.
+14. Click **Generate**.
 
-17. Click **Yes** to overwrite it in the **Linker Already Exists!** dialog box.
+15. Click **Yes** to overwrite it in the **Linker Already Exists!** dialog box.
 
-18. Click the hammer icon![](./media/image44-1.png) in the toolbar again to rebuild the application with the modified linker script.
+16. Click the hammer icon![](./media/image44-1.png) in the toolbar again to rebuild the application with the modified linker script.
 
 ## Step 10: Execute the Software Application on a SP701 Board
 ホストに接続したボード上で、デバッグ機能を使ってアプリケーションを実行する。

@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Thu Jun  1 19:50:05 2023
+# Process ID: 46475
+# Current directory: /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_lmb_v10_0_synth_1
+# Command line: vivado -log mb_subsystem_lmb_v10_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mb_subsystem_lmb_v10_0.tcl
+# Log file: /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_lmb_v10_0_synth_1/mb_subsystem_lmb_v10_0.vds
+# Journal file: /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_lmb_v10_0_synth_1/vivado.jou
+# Running On: e5svr1, OS: Linux, CPU Frequency: 3999.877 MHz, CPU Physical cores: 14, Host memory: 134687 MB
+#-----------------------------------------------------------
+source mb_subsystem_lmb_v10_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2536.777 ; gain = 116.984 ; free physical = 26321 ; free virtual = 73506
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: mb_subsystem_lmb_v10_0
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 046f65f6123f55ed to dir: /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_lmb_v10_0_synth_1
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.cache/ip/2023.1/0/4/046f65f6123f55ed/mb_subsystem_dlmb_v10_0.dcp to /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_lmb_v10_0_synth_1/mb_subsystem_lmb_v10_0.dcp.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.cache/ip/2023.1/0/4/046f65f6123f55ed/mb_subsystem_dlmb_v10_0_stub.v to /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_lmb_v10_0_synth_1/mb_subsystem_lmb_v10_0_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.cache/ip/2023.1/0/4/046f65f6123f55ed/mb_subsystem_dlmb_v10_0_stub.vhdl to /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_lmb_v10_0_synth_1/mb_subsystem_lmb_v10_0_stub.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.cache/ip/2023.1/0/4/046f65f6123f55ed/mb_subsystem_dlmb_v10_0_sim_netlist.v to /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_lmb_v10_0_synth_1/mb_subsystem_lmb_v10_0_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.cache/ip/2023.1/0/4/046f65f6123f55ed/mb_subsystem_dlmb_v10_0_sim_netlist.vhdl to /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_lmb_v10_0_synth_1/mb_subsystem_lmb_v10_0_sim_netlist.vhdl.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP mb_subsystem_lmb_v10_0, cache-ID = 046f65f6123f55ed.
+INFO: [Common 17-206] Exiting Vivado at Thu Jun  1 19:50:17 2023...

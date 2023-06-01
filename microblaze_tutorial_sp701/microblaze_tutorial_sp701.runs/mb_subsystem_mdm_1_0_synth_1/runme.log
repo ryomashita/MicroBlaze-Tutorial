@@ -1,0 +1,805 @@
+
+*** Running vivado
+    with args -log mb_subsystem_mdm_1_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source mb_subsystem_mdm_1_0.tcl
+
+
+****** Vivado v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source mb_subsystem_mdm_1_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2536.875 ; gain = 115.984 ; free physical = 660 ; free virtual = 64917
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: mb_subsystem_mdm_1_0
+Command: synth_design -top mb_subsystem_mdm_1_0 -part xc7s100fgga676-2 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s100'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s100'
+INFO: [Device 21-403] Loading part xc7s100fgga676-2
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 45311
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 3279.273 ; gain = 378.699 ; free physical = 605 ; free virtual = 51388
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'mb_subsystem_mdm_1_0' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ip/mb_subsystem_mdm_1_0/synth/mb_subsystem_mdm_1_0.vhd:132]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_DEVICE bound to: xc7s100 - type: string 
+	Parameter C_REVISION bound to: (null) - type: string 
+	Parameter C_JTAG_CHAIN bound to: 2 - type: integer 
+	Parameter C_USE_BSCAN bound to: 0 - type: integer 
+	Parameter C_BSCANID bound to: 76547328 - type: integer 
+	Parameter C_DEBUG_INTERFACE bound to: 0 - type: integer 
+	Parameter C_USE_CONFIG_RESET bound to: 0 - type: integer 
+	Parameter C_AVOID_PRIMITIVES bound to: 0 - type: integer 
+	Parameter C_INTERCONNECT bound to: 2 - type: integer 
+	Parameter C_MB_DBG_PORTS bound to: 1 - type: integer 
+	Parameter C_USE_UART bound to: 0 - type: integer 
+	Parameter C_DBG_REG_ACCESS bound to: 0 - type: integer 
+	Parameter C_DBG_MEM_ACCESS bound to: 1 - type: integer 
+	Parameter C_USE_CROSS_TRIGGER bound to: 1 - type: integer 
+	Parameter C_EXT_TRIG_RESET_VALUE bound to: 20'b11110001001000110100 
+	Parameter C_TRACE_OUTPUT bound to: 0 - type: integer 
+	Parameter C_TRACE_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_TRACE_CLK_FREQ_HZ bound to: 200000000 - type: integer 
+	Parameter C_TRACE_CLK_OUT_PHASE bound to: 90 - type: integer 
+	Parameter C_TRACE_ASYNC_RESET bound to: 0 - type: integer 
+	Parameter C_TRACE_PROTOCOL bound to: 1 - type: integer 
+	Parameter C_TRACE_ID bound to: 110 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ACLK_FREQ_HZ bound to: 100000000 - type: integer 
+	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_M_AXI_THREAD_ID_WIDTH bound to: 1 - type: integer 
+	Parameter C_ADDR_SIZE bound to: 32 - type: integer 
+	Parameter C_DATA_SIZE bound to: 32 - type: integer 
+	Parameter C_LMB_PROTOCOL bound to: 0 - type: integer 
+	Parameter C_M_AXIS_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_M_AXIS_ID_WIDTH bound to: 7 - type: integer 
+INFO: [Synth 8-3491] module 'MDM' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:12674' bound to instance 'U0' of component 'MDM' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ip/mb_subsystem_mdm_1_0/synth/mb_subsystem_mdm_1_0.vhd:1778]
+INFO: [Synth 8-638] synthesizing module 'MDM' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:14358]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter DISABLE_JTAG bound to: FALSE - type: string 
+	Parameter JTAG_CHAIN bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'MB_BSCANE2' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:324' bound to instance 'BSCAN_I' of component 'MB_BSCANE2' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:15976]
+INFO: [Synth 8-638] synthesizing module 'MB_BSCANE2' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:348]
+	Parameter DISABLE_JTAG bound to: FALSE - type: string 
+	Parameter JTAG_CHAIN bound to: 2 - type: integer 
+INFO: [Synth 8-113] binding component instance 'BSCANE2_I' to cell 'BSCANE2' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:358]
+INFO: [Synth 8-256] done synthesizing module 'MB_BSCANE2' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:348]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter INIT bound to: 2'b10 
+INFO: [Synth 8-3491] module 'MB_LUT1' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1527' bound to instance 'LUT1_I' of component 'MB_LUT1' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:15994]
+INFO: [Synth 8-638] synthesizing module 'MB_LUT1' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1541]
+	Parameter INIT bound to: 2'b10 
+INFO: [Synth 8-113] binding component instance 'Native' to cell 'LUT1' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1563]
+INFO: [Synth 8-256] done synthesizing module 'MB_LUT1' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1541]
+	Parameter C_TARGET bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'MB_BUFGCE_1' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:426' bound to instance 'BUFG_DRCK' of component 'MB_BUFGCE_1' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:16505]
+INFO: [Synth 8-638] synthesizing module 'MB_BUFGCE_1' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:440]
+INFO: [Synth 8-113] binding component instance 'Native' to cell 'BUFGCE_1' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:450]
+INFO: [Synth 8-256] done synthesizing module 'MB_BUFGCE_1' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:440]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_JTAG_CHAIN bound to: 2 - type: integer 
+	Parameter C_USE_BSCAN bound to: 0 - type: integer 
+	Parameter C_USE_CONFIG_RESET bound to: 0 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter C_DEBUG_INTERFACE bound to: 0 - type: integer 
+	Parameter C_MB_DBG_PORTS bound to: 1 - type: integer 
+	Parameter C_EN_WIDTH bound to: 1 - type: integer 
+	Parameter C_DBG_REG_ACCESS bound to: 0 - type: integer 
+	Parameter C_REG_NUM_CE bound to: 4 - type: integer 
+	Parameter C_REG_DATA_WIDTH bound to: 8 - type: integer 
+	Parameter C_DBG_MEM_ACCESS bound to: 1 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_ACLK_FREQ_HZ bound to: 100000000 - type: integer 
+	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_USE_CROSS_TRIGGER bound to: 1 - type: integer 
+	Parameter C_EXT_TRIG_RESET_VALUE bound to: 20'b11110001001000110100 
+	Parameter C_USE_UART bound to: 0 - type: integer 
+	Parameter C_UART_WIDTH bound to: 8 - type: integer 
+	Parameter C_TRACE_OUTPUT bound to: 0 - type: integer 
+	Parameter C_TRACE_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_TRACE_ASYNC_RESET bound to: 0 - type: integer 
+	Parameter C_TRACE_CLK_FREQ_HZ bound to: 200000000 - type: integer 
+	Parameter C_TRACE_CLK_OUT_PHASE bound to: 90 - type: integer 
+	Parameter C_TRACE_PROTOCOL bound to: 1 - type: integer 
+	Parameter C_TRACE_ID bound to: 110 - type: integer 
+	Parameter C_M_AXIS_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_M_AXIS_ID_WIDTH bound to: 7 - type: integer 
+INFO: [Synth 8-3491] module 'MDM_Core' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:5792' bound to instance 'MDM_Core_I1' of component 'MDM_Core' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:16607]
+INFO: [Synth 8-638] synthesizing module 'MDM_Core' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:7029]
+INFO: [Synth 8-3491] module 'xil_scan_reset_control' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:300' bound to instance 'config_scan_reset_i' of component 'xil_scan_reset_control' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:7712]
+INFO: [Synth 8-638] synthesizing module 'xil_scan_reset_control' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:309]
+INFO: [Synth 8-256] done synthesizing module 'xil_scan_reset_control' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:309]
+INFO: [Synth 8-3491] module 'xil_scan_reset_control' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:300' bound to instance 'sel_n_reset_i' of component 'xil_scan_reset_control' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:7722]
+INFO: [Synth 8-3491] module 'xil_scan_reset_control' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:300' bound to instance 'shift_n_reset_i' of component 'xil_scan_reset_control' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:7732]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_BSCAN bound to: 0 - type: integer 
+	Parameter C_MB_DBG_PORTS bound to: 1 - type: integer 
+	Parameter C_USE_CONFIG_RESET bound to: 0 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter C_DEBUG_INTERFACE bound to: 0 - type: integer 
+	Parameter C_DBG_REG_ACCESS bound to: 0 - type: integer 
+	Parameter C_DBG_MEM_ACCESS bound to: 1 - type: integer 
+	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_USE_CROSS_TRIGGER bound to: 1 - type: integer 
+	Parameter C_EXT_TRIG_RESET_VALUE bound to: 20'b11110001001000110100 
+	Parameter C_USE_UART bound to: 0 - type: integer 
+	Parameter C_UART_WIDTH bound to: 8 - type: integer 
+	Parameter C_TRACE_OUTPUT bound to: 0 - type: integer 
+	Parameter C_TRACE_PROTOCOL bound to: 1 - type: integer 
+	Parameter C_EN_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'JTAG_CONTROL' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:3075' bound to instance 'JTAG_CONTROL_I' of component 'JTAG_CONTROL' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:10423]
+INFO: [Synth 8-638] synthesizing module 'JTAG_CONTROL' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:3348]
+INFO: [Synth 8-3491] module 'xil_scan_reset_control' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:300' bound to instance 'config_with_scan_reset_i' of component 'xil_scan_reset_control' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:3657]
+INFO: [Synth 8-3491] module 'xil_scan_reset_control' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:300' bound to instance 'sel_with_scan_reset_i' of component 'xil_scan_reset_control' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:3665]
+	Parameter C_TARGET bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'MB_FDC_1' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:740' bound to instance 'FDC_I' of component 'MB_FDC_1' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:3722]
+INFO: [Synth 8-638] synthesizing module 'MB_FDC_1' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:756]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Native' to cell 'FDC_1' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:777]
+INFO: [Synth 8-256] done synthesizing module 'MB_FDC_1' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:756]
+	Parameter C_TARGET bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'MB_FDRE_1' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:799' bound to instance 'SYNC_FDRE' of component 'MB_FDRE_1' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:3732]
+INFO: [Synth 8-638] synthesizing module 'MB_FDRE_1' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:816]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Native' to cell 'FDRE_1' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:839]
+INFO: [Synth 8-256] done synthesizing module 'MB_FDRE_1' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:816]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_STATIC bound to: 1 - type: bool 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 16'b0000000101100111 
+INFO: [Synth 8-3491] module 'MB_SRL16E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:862' bound to instance 'SRL16E_1' of component 'MB_SRL16E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:3926]
+INFO: [Synth 8-638] synthesizing module 'MB_SRL16E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:886]
+	Parameter INIT bound to: 16'b0000000101100111 
+INFO: [Synth 8-113] binding component instance 'MB_SRL16E_I1' to cell 'SRL16E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:890]
+INFO: [Synth 8-256] done synthesizing module 'MB_SRL16E' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:886]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_STATIC bound to: 1 - type: bool 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 16'b0100001011000111 
+INFO: [Synth 8-3491] module 'MB_SRL16E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:862' bound to instance 'SRL16E_2' of component 'MB_SRL16E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:3944]
+INFO: [Synth 8-638] synthesizing module 'MB_SRL16E__parameterized1' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:886]
+	Parameter INIT bound to: 16'b0100001011000111 
+INFO: [Synth 8-113] binding component instance 'MB_SRL16E_I1' to cell 'SRL16E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:890]
+INFO: [Synth 8-256] done synthesizing module 'MB_SRL16E__parameterized1' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:886]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_STATIC bound to: 1 - type: bool 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 16'b0000000000100101 
+INFO: [Synth 8-3491] module 'MB_SRL16E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:862' bound to instance 'SRL16E_3' of component 'MB_SRL16E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:3964]
+INFO: [Synth 8-638] synthesizing module 'MB_SRL16E__parameterized3' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:886]
+	Parameter INIT bound to: 16'b0000000000100101 
+INFO: [Synth 8-113] binding component instance 'MB_SRL16E_I1' to cell 'SRL16E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:890]
+INFO: [Synth 8-256] done synthesizing module 'MB_SRL16E__parameterized3' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:886]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_STATIC bound to: 1 - type: bool 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 16'b0100010001000011 
+INFO: [Synth 8-3491] module 'MB_SRL16E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:862' bound to instance 'SRL16E_ID_1' of component 'MB_SRL16E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:4015]
+INFO: [Synth 8-638] synthesizing module 'MB_SRL16E__parameterized5' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:886]
+	Parameter INIT bound to: 16'b0100010001000011 
+INFO: [Synth 8-113] binding component instance 'MB_SRL16E_I1' to cell 'SRL16E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:890]
+INFO: [Synth 8-256] done synthesizing module 'MB_SRL16E__parameterized5' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:886]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_STATIC bound to: 1 - type: bool 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 16'b0101100001001101 
+INFO: [Synth 8-3491] module 'MB_SRL16E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:862' bound to instance 'SRL16E_ID_2' of component 'MB_SRL16E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:4033]
+INFO: [Synth 8-638] synthesizing module 'MB_SRL16E__parameterized7' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:886]
+	Parameter INIT bound to: 16'b0101100001001101 
+INFO: [Synth 8-113] binding component instance 'MB_SRL16E_I1' to cell 'SRL16E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:890]
+INFO: [Synth 8-256] done synthesizing module 'MB_SRL16E__parameterized7' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:886]
+INFO: [Synth 8-3491] module 'xil_scan_reset_control' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:300' bound to instance 'data_cmd_reset_i' of component 'xil_scan_reset_control' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:4721]
+INFO: [Synth 8-256] done synthesizing module 'JTAG_CONTROL' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:3348]
+INFO: [Synth 8-256] done synthesizing module 'MDM_Core' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:7029]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_M_AXI_THREAD_ID_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_DATA_SIZE bound to: 32 - type: integer 
+	Parameter C_ADDR_SIZE bound to: 32 - type: integer 
+	Parameter C_LMB_PROTOCOL bound to: 0 - type: integer 
+	Parameter C_HAS_FIFO_PORTS bound to: 1 - type: bool 
+	Parameter C_HAS_DIRECT_PORT bound to: 0 - type: bool 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+INFO: [Synth 8-3491] module 'bus_master' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2277' bound to instance 'bus_master_I' of component 'bus_master' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:17875]
+INFO: [Synth 8-638] synthesizing module 'bus_master' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2392]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_DATA_BITS bound to: 32 - type: integer 
+	Parameter C_DEPTH bound to: 32 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+INFO: [Synth 8-3491] module 'SRL_FIFO' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1948' bound to instance 'Read_FIFO' of component 'SRL_FIFO' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2501]
+INFO: [Synth 8-638] synthesizing module 'SRL_FIFO' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1968]
+	Parameter C_TARGET bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'MB_MUXCY_XORCY' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1058' bound to instance 'MUXCY_L_I' of component 'MB_MUXCY_XORCY' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2098]
+INFO: [Synth 8-638] synthesizing module 'MB_MUXCY_XORCY' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1074]
+INFO: [Synth 8-113] binding component instance 'Native_I1' to cell 'MUXCY_L' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1085]
+INFO: [Synth 8-113] binding component instance 'Native_I2' to cell 'XORCY' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1092]
+INFO: [Synth 8-256] done synthesizing module 'MB_MUXCY_XORCY' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1074]
+	Parameter C_TARGET bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'MB_FDRE' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:559' bound to instance 'FDRE_I' of component 'MB_FDRE' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2122]
+INFO: [Synth 8-638] synthesizing module 'MB_FDRE' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:576]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Native' to cell 'FDRE' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:605]
+INFO: [Synth 8-256] done synthesizing module 'MB_FDRE' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:576]
+	Parameter C_TARGET bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'MB_MUXCY_XORCY' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1058' bound to instance 'MUXCY_L_I' of component 'MB_MUXCY_XORCY' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2098]
+	Parameter C_TARGET bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'MB_FDRE' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:559' bound to instance 'FDRE_I' of component 'MB_FDRE' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2122]
+	Parameter C_TARGET bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'MB_MUXCY_XORCY' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1058' bound to instance 'MUXCY_L_I' of component 'MB_MUXCY_XORCY' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2098]
+	Parameter C_TARGET bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'MB_FDRE' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:559' bound to instance 'FDRE_I' of component 'MB_FDRE' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2122]
+	Parameter C_TARGET bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'MB_MUXCY_XORCY' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1058' bound to instance 'MUXCY_L_I' of component 'MB_MUXCY_XORCY' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2098]
+	Parameter C_TARGET bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'MB_FDRE' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:559' bound to instance 'FDRE_I' of component 'MB_FDRE' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2122]
+	Parameter C_TARGET bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'MB_XORCY' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1154' bound to instance 'XORCY_I' of component 'MB_XORCY' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2112]
+INFO: [Synth 8-638] synthesizing module 'MB_XORCY' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1168]
+INFO: [Synth 8-113] binding component instance 'Native' to cell 'XORCY' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1178]
+INFO: [Synth 8-256] done synthesizing module 'MB_XORCY' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1168]
+	Parameter C_TARGET bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'MB_FDRE' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:559' bound to instance 'FDRE_I' of component 'MB_FDRE' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2122]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+INFO: [Synth 8-638] synthesizing module 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1220]
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Native' to cell 'SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1268]
+INFO: [Synth 8-256] done synthesizing module 'MB_SRLC32E' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1220]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+	Parameter INIT bound to: 32'b00000000000000000000000000000000 
+INFO: [Synth 8-3491] module 'MB_SRLC32E' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1196' bound to instance 'SRLC32E_I' of component 'MB_SRLC32E' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2159]
+INFO: [Synth 8-256] done synthesizing module 'SRL_FIFO' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1968]
+	Parameter C_TARGET bound to: 9 - type: integer 
+	Parameter C_DATA_BITS bound to: 32 - type: integer 
+	Parameter C_DEPTH bound to: 32 - type: integer 
+	Parameter C_USE_SRL16 bound to: yes - type: string 
+INFO: [Synth 8-3491] module 'SRL_FIFO' declared at '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:1948' bound to instance 'Write_FIFO' of component 'SRL_FIFO' [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2520]
+INFO: [Synth 8-226] default block is never used [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2418]
+INFO: [Synth 8-226] default block is never used [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2713]
+INFO: [Synth 8-226] default block is never used [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2900]
+INFO: [Synth 8-256] done synthesizing module 'bus_master' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2392]
+INFO: [Synth 8-256] done synthesizing module 'MDM' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:14358]
+INFO: [Synth 8-256] done synthesizing module 'mb_subsystem_mdm_1_0' (0#1) [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ip/mb_subsystem_mdm_1_0/synth/mb_subsystem_mdm_1_0.vhd:132]
+WARNING: [Synth 8-6014] Unused sequential element set_Ext_BRK_reg was removed.  [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:4121]
+WARNING: [Synth 8-6014] Unused sequential element Has_FIFO.axi_dwr_sel_reg was removed.  [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2565]
+WARNING: [Synth 8-6014] Unused sequential element Has_FIFO.lmb_rd_next_reg was removed.  [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ipshared/4e42/hdl/mdm_v3_2_vh_rfs.vhd:2574]
+WARNING: [Synth 8-7129] Port Config_Reset in module MB_SRLC32E is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[31] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[30] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[29] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[28] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[27] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[26] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[25] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[24] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[23] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[22] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[21] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[20] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[19] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[18] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[17] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[16] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[15] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[14] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[13] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[12] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[11] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[10] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[9] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[8] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[7] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[6] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[5] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[4] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[3] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[2] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[1] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Addr[0] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Len[4] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Len[3] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Len[2] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Len[1] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Len[0] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[31] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[30] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[29] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[28] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[27] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[26] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[25] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[24] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[23] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[22] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[21] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[20] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[19] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[18] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[17] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[16] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[15] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[14] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[13] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[12] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[11] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[10] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[9] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[8] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[7] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[6] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[5] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[4] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[3] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[2] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[1] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Direct_Wr_Data[0] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_BID[0] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_RID[0] in module bus_master is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Config_Reset in module MB_SRL16E__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Config_Reset in module MB_SRL16E__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Config_Reset in module MB_SRL16E__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Config_Reset in module MB_SRL16E__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Config_Reset in module MB_SRL16E is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Clk in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Rst in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Clear_Ext_BRK in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Read_RX_FIFO in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Reset_RX_FIFO in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Write_TX_FIFO in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Reset_TX_FIFO in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TX_Data[0] in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TX_Data[1] in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TX_Data[2] in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TX_Data[3] in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TX_Data[4] in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TX_Data[5] in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TX_Data[6] in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TX_Data[7] in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DbgReg_DRCK in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DbgReg_UPDATE in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DbgReg_Access_Lock in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DbgReg_Force_Lock in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DbgReg_Unlocked in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AXI_Transaction in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AXI_Instr_Overrun in module JTAG_CONTROL is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AXI_Data_Overrun in module JTAG_CONTROL is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 3388.184 ; gain = 487.609 ; free physical = 683 ; free virtual = 49710
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 3405.992 ; gain = 505.418 ; free physical = 641 ; free virtual = 49668
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 3405.992 ; gain = 505.418 ; free physical = 640 ; free virtual = 49668
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 3411.930 ; gain = 0.000 ; free physical = 647 ; free virtual = 49544
+INFO: [Netlist 29-17] Analyzing 21 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ip/mb_subsystem_mdm_1_0/mb_subsystem_mdm_1_0_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ip/mb_subsystem_mdm_1_0/mb_subsystem_mdm_1_0_ooc.xdc] for cell 'U0'
+Parsing XDC File [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_mdm_1_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_mdm_1_0_synth_1/dont_touch.xdc]
+Parsing XDC File [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ip/mb_subsystem_mdm_1_0/mb_subsystem_mdm_1_0_ooc_trace.xdc] for cell 'U0'
+Finished Parsing XDC File [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ip/mb_subsystem_mdm_1_0/mb_subsystem_mdm_1_0_ooc_trace.xdc] for cell 'U0'
+Parsing XDC File [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ip/mb_subsystem_mdm_1_0/mb_subsystem_mdm_1_0.xdc] for cell 'U0'
+Finished Parsing XDC File [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ip/mb_subsystem_mdm_1_0/mb_subsystem_mdm_1_0.xdc] for cell 'U0'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.gen/sources_1/bd/mb_subsystem/ip/mb_subsystem_mdm_1_0/mb_subsystem_mdm_1_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/mb_subsystem_mdm_1_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/mb_subsystem_mdm_1_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3538.742 ; gain = 0.000 ; free physical = 686 ; free virtual = 49256
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 11 instances were transformed.
+  BUFGCE_1 => BUFGCTRL: 1 instance 
+  FDC_1 => FDCE (inverted pins: C): 1 instance 
+  FDRE_1 => FDRE (inverted pins: C): 1 instance 
+  MUXCY_L => MUXCY: 8 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3538.742 ; gain = 0.000 ; free physical = 680 ; free virtual = 49250
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 685 ; free virtual = 48496
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s100fgga676-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 684 ; free virtual = 48496
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  /home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_mdm_1_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 684 ; free virtual = 48495
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'Has_FIFO.lmb_state_reg' in module 'bus_master'
+INFO: [Synth 8-802] inferred FSM for state register 'Has_FIFO.rd_state_reg' in module 'bus_master'
+INFO: [Synth 8-802] inferred FSM for state register 'wr_state_reg' in module 'bus_master'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                               00 |                               00
+                   start |                               01 |                               01
+           wait_on_ready |                               10 |                               10
+           wait_on_bchan |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wr_state_reg' using encoding 'sequential' in module 'bus_master'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                         00000001 |                             0000
+                start_wr |                         00000010 |                             0011
+                 wait_wr |                         00000100 |                             0100
+               sample_wr |                         00001000 |                             0111
+                start_rd |                         00010000 |                             0001
+                 wait_rd |                         00100000 |                             0010
+               sample_rd |                         01000000 |                             0101
+                  iSTATE |                         10000000 |                             1111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Has_FIFO.lmb_state_reg' using encoding 'one-hot' in module 'bus_master'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                               00 |                               00
+                   start |                               01 |                               01
+           wait_on_ready |                               10 |                               10
+            wait_on_data |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Has_FIFO.rd_state_reg' using encoding 'sequential' in module 'bus_master'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 656 ; free virtual = 48432
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   10 Bit       Adders := 1     
+	   2 Input    6 Bit       Adders := 2     
+	   2 Input    5 Bit       Adders := 3     
+	   2 Input    2 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 10    
++---Registers : 
+	               32 Bit    Registers := 6     
+	               24 Bit    Registers := 1     
+	               16 Bit    Registers := 2     
+	                8 Bit    Registers := 5     
+	                6 Bit    Registers := 3     
+	                5 Bit    Registers := 4     
+	                4 Bit    Registers := 17    
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 7     
+	                1 Bit    Registers := 54    
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 3     
+	   2 Input   24 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 4     
+	   2 Input   10 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 10    
+	   7 Input    8 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 2     
+	   4 Input    5 Bit        Muxes := 1     
+	   8 Input    5 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 2     
+	   3 Input    4 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 5     
+	   4 Input    2 Bit        Muxes := 5     
+	   8 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 69    
+	  12 Input    1 Bit        Muxes := 1     
+	   5 Input    1 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 25    
+	   8 Input    1 Bit        Muxes := 14    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 160 (col length:80)
+BRAMs: 240 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3332] Sequential element (Use_Bus_MASTER.bus_master_I/FSM_onehot_Has_FIFO.lmb_state_reg[7]) is unused and will be removed from module MDM.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 678 ; free virtual = 48280
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 2109 ; free virtual = 49268
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 2660 ; free virtual = 49852
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 2640 ; free virtual = 49833
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 2728 ; free virtual = 49892
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 2728 ; free virtual = 49892
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 2728 ; free virtual = 49892
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 2728 ; free virtual = 49892
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 2728 ; free virtual = 49892
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 2728 ; free virtual = 49892
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                                 | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|MDM         | MDM_Core_I1/Use_BSCAN.Config_Reg_reg[26] | 4      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|MDM         | MDM_Core_I1/Use_BSCAN.Config_Reg_reg[10] | 15     | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|MDM         | MDM_Core_I1/Use_BSCAN.Config_Reg_reg[3]  | 6      | 1     | YES          | NO                 | YES               | 1      | 0       | 
++------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BSCANE2 |     1|
+|2     |BUFGCE  |     1|
+|3     |LUT1    |     6|
+|4     |LUT2    |    35|
+|5     |LUT3    |    82|
+|6     |LUT4    |   112|
+|7     |LUT5    |    47|
+|8     |LUT6    |   158|
+|9     |MUXCY_L |     8|
+|10    |SRL16E  |     8|
+|11    |SRLC32E |    64|
+|12    |XORCY   |    10|
+|13    |FDCE    |    31|
+|14    |FDC     |     1|
+|15    |FDPE    |     6|
+|16    |FDRE    |   426|
+|18    |FDSE    |     9|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 2728 ; free virtual = 49892
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 4210 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 3538.742 ; gain = 505.418 ; free physical = 3007 ; free virtual = 50172
+Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 3538.742 ; gain = 638.168 ; free physical = 3007 ; free virtual = 50172
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3538.742 ; gain = 0.000 ; free physical = 3259 ; free virtual = 50424
+INFO: [Netlist 29-17] Analyzing 21 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3538.742 ; gain = 0.000 ; free physical = 3259 ; free virtual = 50423
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 7 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 4 instances
+  BUFGCE_1 => BUFGCTRL: 1 instance 
+  FDC_1 => FDCE (inverted pins: C): 1 instance 
+  FDRE_1 => FDRE (inverted pins: C): 1 instance 
+
+Synth Design complete | Checksum: 2a386793
+INFO: [Common 17-83] Releasing license: Synthesis
+150 Infos, 105 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:39 . Memory (MB): peak = 3538.742 ; gain = 960.207 ; free physical = 3259 ; free virtual = 50424
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2661.843; main = 2405.128; forked = 259.183
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4775.195; main = 3538.742; forked = 1268.469
+INFO: [Common 17-1381] The checkpoint '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_mdm_1_0_synth_1/mb_subsystem_mdm_1_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP mb_subsystem_mdm_1_0, cache-ID = a80865b97ba464dd
+INFO: [Coretcl 2-1174] Renamed 100 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/r-yamashita/bootLoader/MicroBlaze-Tutorial/microblaze_tutorial_sp701/microblaze_tutorial_sp701.runs/mb_subsystem_mdm_1_0_synth_1/mb_subsystem_mdm_1_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file mb_subsystem_mdm_1_0_utilization_synth.rpt -pb mb_subsystem_mdm_1_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Jun  1 19:50:01 2023...
